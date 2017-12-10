@@ -1,5 +1,9 @@
-# u8ctl - Tools to Control a Roland ED U-8
+# u8ctl - Utility to Control a Roland ED U-8
 
+The Roland Edirol U-8 USB Digital Studio is an USB 1.1 audio and MIDI interface with a built in effect unit, that can also be used as a standalone digital mixer and a MIDI control surface.
+It was sold around 1998-2000 and the only full-featured device driver for it is for the Windows 98 operating system.
+
+*If you have the original driver CD that came with the U-8, please get in touch with me. It would be hugely helpful for mapping out the workings of the unit.*
 
 ## Usage
 
