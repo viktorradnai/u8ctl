@@ -1,0 +1,77 @@
+PC -> U8
+
+21 02 03        int     Mic/gtr/inst volume
+21 02 04        int     Mic/gtr/inst pan (0: mic, 127: gtr, 63: both)
+21 02 07        bool    Mic/gtr/inst mute
+21 02 21        int     Aux/digital volume
+21 02 22        int     Aux/digital pan
+21 02 25        bool    Aux/digital mute
+21 02 28        int     Wave out 1 (master) vol
+21 02 29        int     Wave out 1 (master) pan
+21 02 2a        bool    Wave out 1 (master) mute
+21 02 2b        int     Wave out 2 (effect) volume
+21 02 2c        int     Wave out 2 (effect) pan
+21 02 2d        bool    Wave out 2 (effect) mute
+21 02 3c        int     Master volume
+21 02 3d        bool    Master mute
+
+U8 -> PC
+
+30 00 00        bool    Fader bank button
+30 00 01        bool    Mixer button
+30 00 02        bool    Effect button
+30 00 03        bool    Start button
+30 00 04        bool    Guitar/inst button
+30 00 05        bool    Mic button
+30 00 06        bool    Mixdown button
+30 00 07        bool    Window button
+30 00 08        bool    Menu button
+30 00 09        bool    Select button
+30 00 0a        bool    Command button
+30 00 0b        bool    Loop button
+30 00 0c        bool    Auto punch button
+30 00 0d        bool    Shift button
+30 00 0e        bool    1/Prev button
+30 00 0f        bool    2/Next button
+30 00 10        bool    Set/Tap button
+
+30 00 11        bool    Enter/Yes button
+30 00 12        bool    Exit/No button
+30 00 13        bool    Cursor up button
+30 00 14        bool    Cursor down button
+30 00 15        bool    Cursor left button
+30 00 16        bool    Cursor right button
+
+30 00 17        bool    Rewind to start button
+30 00 18        bool    Rewind button
+30 00 19        bool    Fast forward button
+30 00 1a        bool    Stop button
+30 00 1b        bool    Play button
+30 00 1c        bool    Record button
+
+30 02 00        bool    Volume button 1
+30 02 01        bool    Volume button 2
+30 02 02        bool    Volume button 3
+30 02 03        bool    Volume button 4
+30 02 04        bool    Volume button 5
+30 02 05        bool    Volume button 6
+30 02 06        bool    Volume button 8
+30 02 07        bool    Volume button 8
+30 02 78        bool    Rec monitor button
+
+30 10 00        int     Volume fader 1
+30 10 01        int     Volume fader 2
+30 10 02        int     Volume fader 3
+30 10 03        int     Volume fader 4
+30 10 04        int     Volume fader 5
+30 10 05        int     Volume fader 6
+30 10 06        int     Volume fader 8
+30 10 07        int     Volume fader 8
+30 10 78        int     Master volume fader
+
+30 20 00        int     Pan 1
+30 20 01        int     Pan 2
+30 20 02        int     Pan 3
+30 20 03        int     Pan 4
+
+30 30 00        int     Jog wheel. Only two values are sent: 0f = left, 01 = right

@@ -1,0 +1,78 @@
+--- linux-source-4.11-orig/sound/usb/quirks-table.h	2017-06-17 05:47:27.000000000 +0100
++++ linux-source-4.11/sound/usb/quirks-table.h	2017-12-08 03:01:43.885329452 +0000
+@@ -631,11 +631,37 @@
+ 		.data = (const struct snd_usb_audio_quirk[]) {
+ 			{
+ 				.ifnum = 0,
+-				.type = QUIRK_IGNORE_INTERFACE
++				.type = QUIRK_AUDIO_FIXED_ENDPOINT,
++				.data = & (const struct audioformat) {
++					.formats = SNDRV_PCM_FMTBIT_S16_LE,
++					.channels = 4,
++					.iface = 0,
++					.altsetting = 1,
++					.altset_idx = 1,
++					.attributes = 0,
++					.endpoint = 0x01,
++					.ep_attr = 0x09,
++					.rates = SNDRV_PCM_RATE_CONTINUOUS,
++					.rate_min = 44100,
++					.rate_max = 44100,
++				}
+ 			},
+ 			{
+ 				.ifnum = 1,
+-				.type = QUIRK_IGNORE_INTERFACE
++				.type = QUIRK_AUDIO_FIXED_ENDPOINT,
++				.data = & (const struct audioformat) {
++					.formats = SNDRV_PCM_FMTBIT_S16_LE,
++					.channels = 2,
++					.iface = 1,
++					.altsetting = 1,
++					.altset_idx = 1,
++					.attributes = UAC_EP_CS_ATTR_FILL_MAX,
++					.endpoint = 0x81,
++					.ep_attr = 0x05,
++					.rates = SNDRV_PCM_RATE_CONTINUOUS,
++					.rate_min = 44100,
++					.rate_max = 44100,
++				}
+ 			},
+ 			{
+ 				.ifnum = 2,
+@@ -3020,12 +3046,13 @@
+ 					.attributes = 0x00,
+ 					.endpoint = 0x03,
+ 					.ep_attr = USB_ENDPOINT_SYNC_ASYNC,
+-					.rates = SNDRV_PCM_RATE_48000,
+-					.rate_min = 48000,
++					.rates = SNDRV_PCM_RATE_44100|
++						SNDRV_PCM_RATE_48000,
++					.rate_min = 44100,
+ 					.rate_max = 48000,
+-					.nr_rates = 1,
++					.nr_rates = 2,
+ 					.rate_table = (unsigned int[]) {
+-						48000
++						44100, 48000
+ 					}
+ 				}
+ 			},
+@@ -3045,12 +3072,13 @@
+ 					.attributes = UAC_EP_CS_ATTR_SAMPLE_RATE,
+ 					.endpoint = 0x85,
+ 					.ep_attr = USB_ENDPOINT_SYNC_SYNC,
+-					.rates = SNDRV_PCM_RATE_48000,
+-					.rate_min = 48000,
++					.rates = SNDRV_PCM_RATE_44100|
++						SNDRV_PCM_RATE_48000,
++					.rate_min = 44100,
+ 					.rate_max = 48000,
+-					.nr_rates = 1,
++					.nr_rates = 2,
+ 					.rate_table = (unsigned int[]) {
+-						48000
++						44100, 48000
+ 					}
+ 				}
+ 			},
